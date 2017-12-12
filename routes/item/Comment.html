@@ -1,0 +1,79 @@
+{{#if !comment.deleted}}
+	<article class='comment'>
+		<span class='meta'><a href='/user/{{comment.user}}'>{{comment.user}}</a> {{timebetween(comment.time, now)}} ago</span>
+		<div class='body'>
+			{{{comment.content}}}
+		</div>
+
+		{{#if comment.comments.length > 0}}
+			<ul class='children'>
+				{{#each comment.comments as child}}
+					<li><:Self comment='{{child}}'/></li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</article>
+{{/if}}
+
+<style>
+	.comment {
+		border-top: 1px solid #eee;
+		padding: 1em 0 0 0;
+	}
+
+	.comment .children {
+		padding: 0 0 0 1em;
+	}
+
+	@media (min-width: 720px) {
+		.comment .children {
+			padding: 0 0 0 2em;
+		}
+	}
+
+	li {
+		list-style: none;
+	}
+
+	p {
+		line-height: 1.4;
+		font-size: 14px;
+		margin: 0 0 1em 0;
+	}
+
+	pre {
+		white-space: pre-wrap;
+	}
+
+	.meta {
+		display: block;
+		font-size: 14px;
+		color: #888;
+		margin: 0 0 1em 0;
+	}
+
+	a {
+		color: #888;
+	}
+
+	/* prevent crazy overflow layout bug on mobile */
+	.body * {
+		overflow-wrap: break-word;
+	}
+</style>
+
+<script>
+	import timebetween from '../_helpers/timebetween.js';
+
+	export default {
+		data () {
+			return {
+				now: Date.now() / 1e3
+			};
+		},
+
+		helpers: {
+			timebetween
+		}
+	};
+</script>

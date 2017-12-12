@@ -1,0 +1,58 @@
+<Layout>
+	<h1>{{params.name}}</h1>
+
+	<div>
+		{{#await user_promise}}
+			<p>loading...</p>
+		{{then user}}
+			<p>...joined <strong>{{ago(user)}}</strong>, and has <strong>{{user.karma}}</strong> karma</p>
+
+			<p>
+				<a href='https://news.ycombinator.com/submitted?id={{user.id}}'>submissions</a> /
+				<a href='https://news.ycombinator.com/threads?id={{user.id}}'>comments</a> /
+				<a href='https://news.ycombinator.com/favorites?id={{user.id}}'>favourites</a>
+			</p>
+
+			{{#if user.about}}
+				<div class='about'>
+					{{{ '<p>' + user.about }}}
+				</div>
+			{{/if}}
+		{{catch error}}
+			<p>error: {{error.message}}</p>
+		{{/await}}
+	</div>
+</Layout>
+
+<script>
+	import Layout from '../_components/Layout.html';
+
+	export default {
+		components: {
+			Layout
+		},
+
+		data () {
+			const d = new Date();
+
+			return {
+				today: new Date(d.getFullYear(), d.getMonth(), d.getDate())
+			};
+		},
+
+		computed: {
+			user_promise: params => fetch(`https://node-hnapi.herokuapp.com/user/${params.name}`).then(r => r.json()),
+
+			ago: today => {
+				return user => {
+					const created = new Date(user.created * 1e3);
+					const elapsedDays = (today - created) / (86400 * 1e3);
+
+					if (elapsedDays < 0) return 'today';
+					if (elapsedDays < 1) return 'yesterday';
+					return Math.ceil(elapsedDays) + ' days ago';
+				};
+			}
+		}
+	};
+</script>

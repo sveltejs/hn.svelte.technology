@@ -1,0 +1,83 @@
+<article>
+	<h2>
+		<a href='{{item.domain ? item.url : `/item/${item.id}` }}'>{{item.title}} {{#if item.domain}}<small>({{item.domain}})</small>{{/if}}</a>
+	</h2>
+
+	{{#if item.type === 'job'}}
+		<p>
+			{{timebetween(item.time, now)}} ago
+		</p>
+	{{else}}
+		<p>
+			{{item.points}} points by
+			<a href='/user/{{item.user}}'>{{item.user}}</a> {{timebetween(item.time, now)}} ago
+			 | <a href='/item/{{item.id}}'>{{item.comments_count}} {{item.comments_count === 1 ? 'comment' : 'comments'}}</a>
+		</p>
+	{{/if}}
+
+
+
+	<span class='index'>{{index}}</span>
+</article>
+
+<style>
+	article {
+		position: relative;
+		padding: 0 0 0 2.5em;
+		margin: 0 0 1.5em 0;
+	}
+
+	h2 {
+		font-size: 1em;
+		font-weight: 400;
+		margin: 0 0 0.5em 0;
+		color: #333;
+	}
+
+	h2 a {
+		text-decoration: none;
+	}
+
+	p {
+		font-size: 0.8em;
+		color: #888;
+		margin: 0;
+	}
+
+	small {
+		color: #888;
+	}
+
+	.index {
+		position: absolute;
+		font-size: 1.6em;
+		font-weight: 200;
+		color: #888;
+		left: 0.2em;
+		top: 0;
+		text-align: right;
+		width: 0.75em;
+		line-height: 1;
+	}
+</style>
+
+<script>
+	import hostname from '../_helpers/hostname.js';
+	import timebetween from '../_helpers/timebetween.js';
+
+	export default {
+		data () {
+			return {
+				title: '',
+				score: '',
+				time: Date.now() / 1e3,
+				now: Date.now() / 1e3
+			};
+		},
+
+		helpers: {
+			hostname,
+			timebetween
+		}
+	};
+</script>

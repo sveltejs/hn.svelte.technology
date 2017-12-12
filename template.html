@@ -1,0 +1,24 @@
+<!doctype>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width'>
+	<meta name='theme-color' content='#aa1e1e'>
+
+	<link rel='manifest' href='/manifest.json'>
+	<link rel='icon' type='image/png' href='/favicon.png'>
+	<link rel='stylesheet' href='/global.css'>
+
+	<title>Sapper Hacker News</title>
+
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/sw.js');
+		}
+	</script>
+</head>
+<body>
+	<div id='sapper'>__html__</div>
+	<script src='__main__'></script>
+</body>
+</html>
