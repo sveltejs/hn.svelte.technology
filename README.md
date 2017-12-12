@@ -1,5 +1,7 @@
 # sapper-hacker-news
 
+## THIS IS VERY WORK-IN-PROGRESS
+
 Testing ground for [sapper](https://github.com/rich-harris/sapper).
 
 ```bash
