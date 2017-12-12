@@ -20,3 +20,4 @@ Some of these are Svelte things, some of these are Sapper things:
 * Critical CSS
 * Sapper doesn't currently watch the `routes` folder, so you have to keep restarting the server. Also, webpack only runs once
 * Service worker
+* Build optimised production version
