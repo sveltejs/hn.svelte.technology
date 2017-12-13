@@ -1,29 +1,25 @@
+<:Document title='{{item.title}} | Sapper Hacker News'/>
+
 <Layout>
 	<div>
-		{{#await item_promise}}
-			<p>loading...</p>
-		{{then item}}
-			<article class='item'>
-				<a class='main-link' href='{{item.url}}'>
-					<h1>{{item.title}}</h1>
-					{{#if item.url}}<small>{{item.domain}}</small>{{/if}}
-				</a>
+		<article class='item'>
+			<a class='main-link' href='{{item.url}}'>
+				<h1>{{item.title}}</h1>
+				{{#if item.url}}<small>{{item.domain}}</small>{{/if}}
+			</a>
 
-				<p class='meta'>{{item.points}} points by <a href='/user/{{item.user}}'>{{item.user}}</a> {{timebetween( item.time, now )}} ago</p>
+			<p class='meta'>{{item.points}} points by <a href='/user/{{item.user}}'>{{item.user}}</a> {{timebetween( item.time, now )}} ago</p>
 
-				{{#if item.content}}
-					{{{item.content}}}
-				{{/if}}
-			</article>
+			{{#if item.content}}
+				{{{item.content}}}
+			{{/if}}
+		</article>
 
-			<div class='comments'>
-				{{#each item.comments as comment}}
-					<Comment comment='{{comment}}'/>
-				{{/each}}
-			</div>
-		{{catch error}}
-			<p>something went wrong: {{err.message}}</p>
-		{{/await}}
+		<div class='comments'>
+			{{#each item.comments as comment}}
+				<Comment comment='{{comment}}'/>
+			{{/each}}
+		</div>
 	</div>
 </Layout>
 
@@ -56,7 +52,7 @@
 
 <script>
 	import Layout from '../_components/Layout.html';
-	import Comment from './Comment.html';
+	import Comment from './_Comment.html';
 	import timebetween from '../_helpers/timebetween.js';
 
 	export default {
@@ -69,8 +65,12 @@
 			timebetween
 		},
 
-		computed: {
-			item_promise: params => fetch(`https://node-hnapi.herokuapp.com/item/${params.id}`).then(r => r.json())
+		preload({ params }) {
+			return fetch(`https://node-hnapi.herokuapp.com/item/${params.id}`)
+				.then(r => r.json())
+				.then(item => {
+					return { item };
+				});
 		}
 	};
 </script>

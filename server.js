@@ -17,10 +17,11 @@ global.fetch = (url, opts) => {
 app.use(sapper({
 	dev,
 	selector: '#sapper',
-	template: ({ main, html }) => {
+	template: ({ main, html, css }) => {
 		return template
 			.replace('__main__', main)
-			.replace('__html__', html);
+			.replace('__html__', html)
+			.replace('__css__', `<style>${css}</style>`);
 	}
 }));
 

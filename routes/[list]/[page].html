@@ -1,3 +1,5 @@
+<:Document title='Sapper Hacker News'/>
+
 <Layout>
 	{{#each items as item, i}}
 		{{#if item}} <!-- sometimes we get bad data? TODO investigate -->
@@ -22,19 +24,7 @@
 			ItemSummary
 		},
 
-		data() {
-			return {
-				items: []
-			};
-		},
-
-		computed: {
-			start: params => (1 + (params.page - 1) * PAGE_SIZE),
-			next: params => `/${params.list}/${+params.page + 1}`
-		},
-
-		oncreate() {
-			const params = this.get('params');
+		preload({ params }) {
 			const list = (
 				params.list === 'top' ? 'news' :
 				params.list === 'new' ? 'newest' :
@@ -42,12 +32,16 @@
 			);
 			const page = +params.page;
 
-			fetch(`https://node-hnapi.herokuapp.com/${list}?page=${page}`)
+			return fetch(`https://node-hnapi.herokuapp.com/${list}?page=${page}`)
 				.then(r => r.json())
 				.then(items => {
-					console.log({ items });
-					this.set({ items });
+					return { items };
 				});
+		},
+
+		computed: {
+			start: params => (1 + (params.page - 1) * PAGE_SIZE),
+			next: params => `/${params.list}/${+params.page + 1}`
 		}
 	};
 </script>
