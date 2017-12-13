@@ -12,12 +12,12 @@ global.fetch = (url, opts) => {
 	return fetch(url, opts);
 };
 
+app.use(static('static'));
+
 app.use(sapper({
 	dev,
 	selector: '#sapper'
 }));
-
-app.use(static('static'));
 
 app.listen(PORT, () => {
 	console.log(`listening on port ${PORT}`);
