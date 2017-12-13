@@ -9,18 +9,18 @@
 	<link rel='icon' type='image/png' href='/favicon.png'>
 	<link rel='stylesheet' href='/global.css'>
 
-	<title>Sapper Hacker News</title>
+	<title>%sapper.title%</title>
 
 	<script>
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/sw.js');
+			navigator.serviceWorker.register('%sapper.serviceworker%');
 		}
 	</script>
 
-	__css__
+	%sapper.styles%
 </head>
 <body>
-	<div id='sapper'>__html__</div>
-	<script src='__main__'></script>
+	<div id='sapper'>%sapper.html%</div>
+	<script src='%sapper.main%'></script>
 </body>
 </html>
