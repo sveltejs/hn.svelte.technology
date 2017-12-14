@@ -14,7 +14,7 @@ global.fetch = (url, opts) => {
 
 app.use(compression({ threshold: 0 }));
 
-app.use(static('static'));
+app.use(static('assets'));
 
 app.use(sapper({
 	selector: '#sapper'
