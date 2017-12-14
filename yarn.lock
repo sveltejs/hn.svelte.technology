@@ -2703,9 +2703,9 @@ safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, s
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
 
-sapper@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/sapper/-/sapper-0.0.5.tgz#ed239e3badc483e58c12cdf7b36d67fae6292987"
+sapper@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/sapper/-/sapper-0.0.6.tgz#2a66ab2835c82b17216211b7c09a77217087e7f9"
   dependencies:
     "@std/esm" "^0.18.0"
     rimraf "^2.6.2"
