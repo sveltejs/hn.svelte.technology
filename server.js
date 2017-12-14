@@ -1,5 +1,6 @@
 const fs = require('fs');
 const app = require('express')();
+const compression = require('compression');
 const sapper = require('sapper');
 const static = require('serve-static');
 
@@ -11,6 +12,8 @@ global.fetch = (url, opts) => {
 	if (url[0] === '/') url = `http://localhost:${PORT}${url}`;
 	return fetch(url, opts);
 };
+
+app.use(compression({ threshold: 0 }));
 
 app.use(static('static'));
 
