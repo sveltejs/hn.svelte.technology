@@ -1,6 +1,16 @@
 {
+  "name": "sapper-hacker-news",
+  "description": "Hacker News built with Sapper",
+  "version": "0.0.1",
+  "author": "Rich Harris",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "cross-env NODE_ENV=production node server.js"
+  },
   "dependencies": {
     "@std/esm": "^0.18.0",
+    "compression": "^1.7.1",
+    "cross-env": "^5.1.1",
     "express": "^4.16.2",
     "glob": "^7.1.2",
     "marked": "^0.3.7",
@@ -8,7 +18,8 @@
     "sapper": "0.0.3",
     "serve-static": "^1.13.1",
     "svelte": "^1.48.0",
-    "svelte-loader": "^2.2.1"
+    "svelte-loader": "^2.2.1",
+    "uglifyjs-webpack-plugin": "^1.1.2"
   },
   "devDependencies": {
     "css-loader": "^0.28.7",
