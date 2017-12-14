@@ -960,7 +960,7 @@ es6-weak-map@^2.0.1:
     es6-iterator "^2.0.1"
     es6-symbol "^3.1.1"
 
-escape-html@~1.0.3:
+escape-html@^1.0.3, escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
 
@@ -2703,11 +2703,13 @@ safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, s
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
 
-sapper@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/sapper/-/sapper-0.0.6.tgz#2a66ab2835c82b17216211b7c09a77217087e7f9"
+sapper@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/sapper/-/sapper-0.0.12.tgz#a1ee26dddd68f6f7dbdac22399d6a7e74817e033"
   dependencies:
     "@std/esm" "^0.18.0"
+    escape-html "^1.0.3"
+    mkdirp "^0.5.1"
     rimraf "^2.6.2"
     webpack "^3.10.0"
 
