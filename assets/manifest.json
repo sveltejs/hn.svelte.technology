@@ -1,0 +1,15 @@
+{
+	"background_color": "#ffffff",
+	"theme_color": "#aa1e1e",
+	"name": "Svelte Hacker News",
+	"short_name": "Svelte HN",
+	"display": "browser",
+	"start_url": "/top/1",
+	"icons": [
+		{
+			"src": "svelte-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	]
+}
