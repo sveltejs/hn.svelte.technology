@@ -7,7 +7,7 @@
 		<article class='item'>
 			<a class='main-link' href='{{item.url}}'>
 				<h1>{{item.title}}</h1>
-				{{#if item.url}}<small>{{item.domain}}</small>{{/if}}
+				{{#if item.domain}}<small>{{item.domain}}</small>{{/if}}
 			</a>
 
 			<p class='meta'>{{item.points}} points by <a href='/user/{{item.user}}'>{{item.user}}</a> {{timebetween( item.time, now )}} ago</p>
