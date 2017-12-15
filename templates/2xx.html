@@ -1,5 +1,5 @@
 <!doctype>
-<html>
+<html lang='en'>
 <head>
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width'>
@@ -14,6 +14,41 @@
 			navigator.serviceWorker.register('/service-worker.js');
 		}
 	</script>
+
+	<style>
+		body {
+			margin: 0;
+			font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+			background-color: #f4f4f4;
+			height: 101vh; /* prevents scrollbar-induced layout popping */
+		}
+
+		main {
+			position: relative;
+			max-width: 56em;
+			background-color: white;
+			padding: 2em;
+			margin: 0 auto;
+			box-sizing: border-box;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			margin: 0 0 0.5em 0;
+			font-weight: 400;
+		}
+
+		h1 {
+			font-size: 1.6em;
+		}
+
+		p {
+			font-size: 14px;
+		}
+
+		a {
+			color: inherit;
+		}
+	</style>
 
 	%sapper.styles%
 

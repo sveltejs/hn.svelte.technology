@@ -5,7 +5,8 @@
   "author": "Rich Harris",
   "scripts": {
     "dev": "node server.js",
-    "start": "cross-env NODE_ENV=production node server.js"
+    "start": "cross-env NODE_ENV=production node server.js",
+    "deploy": "now && now alias"
   },
   "dependencies": {
     "@std/esm": "^0.18.0",
@@ -16,7 +17,7 @@
     "glob": "^7.1.2",
     "marked": "^0.3.7",
     "node-fetch": "^1.7.3",
-    "sapper": "^0.0.13",
+    "sapper": "^0.0.14",
     "serve-static": "^1.13.1",
     "svelte": "^1.48.0",
     "svelte-loader": "^2.2.1",
@@ -24,6 +25,10 @@
   },
   "devDependencies": {
     "css-loader": "^0.28.7",
+    "now": "^8.5.4",
     "style-loader": "^0.19.0"
+  },
+  "now": {
+    "alias": "sapper-hacker-news.now.sh"
   }
 }
