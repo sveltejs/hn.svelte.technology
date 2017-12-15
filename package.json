@@ -17,7 +17,7 @@
     "glob": "^7.1.2",
     "marked": "^0.3.7",
     "node-fetch": "^1.7.3",
-    "sapper": "^0.0.17",
+    "sapper": "^0.0.19",
     "serve-static": "^1.13.1",
     "svelte": "^1.48.0",
     "svelte-loader": "^2.2.1",
