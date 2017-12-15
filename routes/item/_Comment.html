@@ -1,6 +1,6 @@
 {{#if !comment.deleted}}
 	<article class='comment'>
-		<span class='meta'><a href='/user/{{comment.user}}'>{{comment.user}}</a> {{timebetween(comment.time, now)}} ago</span>
+		<span class='meta'><a rel='prefetch' href='/user/{{comment.user}}'>{{comment.user}}</a> {{timebetween(comment.time, now)}} ago</span>
 		<div class='body'>
 			{{{comment.content}}}
 		</div>

@@ -4,13 +4,13 @@
 	</div>
 
 	<ul>
-		<li><a rel='prefetch' class='{{route === "top"  ? "selected" : ""}}' href='/top/1'>top</a></li>
-		<li><a rel='prefetch' class='{{route === "new"  ? "selected" : ""}}' href='/new/1'>new</a></li>
-		<li><a rel='prefetch' class='{{route === "show" ? "selected" : ""}}' href='/show/1'>show</a></li>
-		<li><a rel='prefetch' class='{{route === "ask"  ? "selected" : ""}}' href='/ask/1'>ask</a></li>
-		<li><a rel='prefetch' class='{{route === "jobs"  ? "selected" : ""}}' href='/jobs/1'>jobs</a></li>
+		<li><a rel='prefetch' class='{{page === "top"  ? "selected" : ""}}' href='/top/1'>top</a></li>
+		<li><a rel='prefetch' class='{{page === "new"  ? "selected" : ""}}' href='/new/1'>new</a></li>
+		<li><a rel='prefetch' class='{{page === "show" ? "selected" : ""}}' href='/show/1'>show</a></li>
+		<li><a rel='prefetch' class='{{page === "ask"  ? "selected" : ""}}' href='/ask/1'>ask</a></li>
+		<li><a rel='prefetch' class='{{page === "jobs"  ? "selected" : ""}}' href='/jobs/1'>jobs</a></li>
 
-		<li class='about'><a class='{{route === "about"  ? "selected" : ""}}' href='/about'>about</a></li>
+		<li class='about'><a class='{{page === "about"  ? "selected" : ""}}' href='/about'>about</a></li>
 	</ul>
 </nav>
 
@@ -19,7 +19,7 @@
 		background-color: rgb(170,30,30);
 		color: white;
 		font-weight: 300;
-		padding: 1em;
+		padding: 0 1em;
 	}
 
 	.icon {
@@ -32,7 +32,7 @@
 		line-height: 1;
 		font-size: 2em;
 		position: relative;
-		top: -0.1em;
+		top: 0.4em;
 		box-sizing: border-box;
 		margin: 0 0.5em 0 0;
 		opacity: 0.6;
@@ -49,24 +49,19 @@
 		padding: 0;
 	}
 
+	ul::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
 	li {
-		display: inline-block;
-		padding: 0 0.2em;
+		display: block;
+		float: left;
 	}
 
 	.about {
 		float: right;
-	}
-
-	@media (min-width: 400px) {
-		.icon {
-			margin: 0 1em 0 0;
-		}
-
-		li {
-			display: inline-block;
-			padding: 0 0.5em;
-		}
 	}
 
 	.selected {
@@ -77,15 +72,27 @@
 	.selected::after {
 		position: absolute;
 		content: '';
-		width: 100%;
+		width: calc(100% - 1em);
 		height: 2px;
 		background-color: white;
 		display: block;
-		bottom: -1em;
+		bottom: 0;
 	}
 
 	a {
 		color: white;
 		text-decoration: none;
+		padding: 1em 0.5em;
+		display: block;
+	}
+
+	@media (min-width: 400px) {
+		.icon {
+			margin: 0 0.5em 0 0;
+		}
+
+		li {
+			display: inline-block;
+		}
 	}
 </style>

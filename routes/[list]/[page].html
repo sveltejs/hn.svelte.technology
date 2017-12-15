@@ -3,7 +3,7 @@
 </:Head>
 
 
-<Layout>
+<Layout page='{{params.list}}'>
 	{{#each items as item, i}}
 		{{#if item}} <!-- sometimes we get bad data? TODO investigate -->
 			<ItemSummary item='{{item}}' index='{{start + i}}'/>
