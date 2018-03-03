@@ -10,7 +10,7 @@
 				{{#if item.domain}}<small>{{item.domain}}</small>{{/if}}
 			</a>
 
-			<p class='meta'>{{item.points}} points by <a href='/user/{{item.user}}'>{{item.user}}</a> {{timebetween( item.time, now )}} ago</p>
+			<p class='meta'>{{item.points}} points by <a href='/user/{{item.user}}'>{{item.user}}</a> {{item.time_ago}}</p>
 
 			{{#if item.content}}
 				{{{item.content}}}
@@ -60,7 +60,6 @@
 <script>
 	import Layout from '../_components/Layout.html';
 	import Comment from './_Comment.html';
-	import timebetween from '../_helpers/timebetween.js';
 
 	export default {
 		components: {
@@ -68,12 +67,8 @@
 			Comment
 		},
 
-		helpers: {
-			timebetween
-		},
-
 		preload({ params }) {
-			return fetch(`https://node-hnapi.herokuapp.com/item/${params.id}`)
+			return fetch(`https://api.hnpwa.com/v0/item/${params.id}.json`)
 				.then(r => r.json())
 				.then(item => {
 					return { item };
