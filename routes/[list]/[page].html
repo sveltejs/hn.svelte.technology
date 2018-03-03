@@ -2,7 +2,6 @@
 	<title>Svelte Hacker News</title>
 </:Head>
 
-
 <Layout page='{{params.list}}'>
 	{{#each items as item, i}}
 		{{#if item}} <!-- sometimes we get bad data? TODO investigate -->
@@ -19,7 +18,9 @@
 	import Layout from '../_components/Layout.html';
 	import ItemSummary from './_ItemSummary.html';
 
-	const PAGE_SIZE = 20;
+	const PAGE_SIZE = 30;
+
+	const validLists = new Set(['news', 'newest', 'show', 'ask', 'jobs']);
 
 	export default {
 		components: {
@@ -33,9 +34,16 @@
 				params.list === 'new' ? 'newest' :
 				params.list
 			);
+
+			if (!validLists.has(list)) {
+				console.log('invalid');
+				this.error(404, 'Not found');
+				return;
+			}
+
 			const page = +params.page;
 
-			return fetch(`https://node-hnapi.herokuapp.com/${list}?page=${page}`)
+			return fetch(`https://api.hnpwa.com/v0/${list}/${page}.json`)
 				.then(r => r.json())
 				.then(items => {
 					return { items };

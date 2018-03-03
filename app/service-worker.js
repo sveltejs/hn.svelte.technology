@@ -39,10 +39,10 @@ self.addEventListener('fetch', event => {
 	}
 
 	// for pages, serve a shell index.html
-	if (url.origin === self.origin && routes.find(route => route.pattern.test(url.pathname))) {
-		event.respondWith(caches.match('/index.html'));
-		return;
-	}
+	// if (url.origin === self.origin && routes.find(route => route.pattern.test(url.pathname))) {
+	// 	event.respondWith(caches.match('/index.html'));
+	// 	return;
+	// }
 
 	// for everything else, try the network first, falling back to
 	// cache if the user is offline

@@ -1,6 +1,6 @@
 {{#if !comment.deleted}}
 	<article class='comment'>
-		<span class='meta'><a rel='prefetch' href='/user/{{comment.user}}'>{{comment.user}}</a> {{timebetween(comment.time, now)}} ago</span>
+		<span class='meta'><a rel='prefetch' href='/user/{{comment.user}}'>{{comment.user}}</a> {{comment.time_ago}}</span>
 		<div class='body'>
 			{{{comment.content}}}
 		</div>
@@ -61,19 +61,3 @@
 		overflow-wrap: break-word;
 	}
 </style>
-
-<script>
-	import timebetween from '../_helpers/timebetween.js';
-
-	export default {
-		data () {
-			return {
-				now: Date.now() / 1e3
-			};
-		},
-
-		helpers: {
-			timebetween
-		}
-	};
-</script>
