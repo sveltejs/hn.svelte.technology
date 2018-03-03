@@ -4,8 +4,9 @@
   "version": "0.0.1",
   "author": "Rich Harris",
   "scripts": {
-    "dev": "node server.js",
-    "start": "cross-env NODE_ENV=production node server.js",
+    "dev": "sapper dev",
+    "build": "sapper build",
+    "start": "node .sapper/server.js",
     "deploy": "now && now alias"
   },
   "dependencies": {
@@ -17,9 +18,9 @@
     "glob": "^7.1.2",
     "marked": "^0.3.7",
     "node-fetch": "^1.7.3",
-    "sapper": "^0.0.20",
+    "sapper": "^0.7.6",
     "serve-static": "^1.13.1",
-    "svelte": "^1.48.0",
+    "svelte": "^1.56.0",
     "svelte-loader": "^2.2.1",
     "uglifyjs-webpack-plugin": "^1.1.2"
   },
