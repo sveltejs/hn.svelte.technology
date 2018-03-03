@@ -1,9 +1,9 @@
-const ASSETS = `cache__timestamp__`;
+import { assets, shell, timestamp, routes } from './manifest/service-worker.js';
 
-const to_cache = __shell__.concat(__assets__);
+const ASSETS = `cache${timestamp}`;
+
+const to_cache = shell.concat(assets);
 const cached = new Set(to_cache);
-
-const routes = __routes__;
 
 self.addEventListener('install', event => {
 	event.waitUntil(
