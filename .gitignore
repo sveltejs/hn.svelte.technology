@@ -3,3 +3,4 @@ node_modules
 package-lock.json
 .sapper
 app/manifest
+yarn-error.log
