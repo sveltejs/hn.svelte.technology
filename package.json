@@ -6,28 +6,24 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build",
-    "start": "node .sapper/server.js",
-    "deploy": "now && now alias"
+    "export": "sapper export",
+    "start": "sapper start",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test": "run-p --race dev cy:run"
   },
   "dependencies": {
-    "@std/esm": "^0.18.0",
     "compression": "^1.7.1",
-    "cross-env": "^5.1.1",
-    "express": "^4.16.2",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "glob": "^7.1.2",
-    "marked": "^0.3.7",
-    "node-fetch": "^1.7.3",
-    "sapper": "^0.7.6",
+    "express": "^4.16.3",
+    "npm-run-all": "^4.1.2",
+    "sapper": "^0.10.0",
     "serve-static": "^1.13.1",
-    "svelte": "^1.56.0",
-    "svelte-loader": "^2.2.1",
-    "uglifyjs-webpack-plugin": "^1.1.2"
+    "svelte": "^1.57.3",
+    "svelte-loader": "^2.3.3",
+    "webpack": "^4.1.0"
   },
   "devDependencies": {
-    "css-loader": "^0.28.7",
-    "now": "^8.5.4",
-    "style-loader": "^0.19.0"
+    "now": "^8.5.4"
   },
   "now": {
     "alias": "hn.svelte.technology"

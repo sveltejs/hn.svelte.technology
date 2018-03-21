@@ -1,60 +1,33 @@
-<!doctype>
-<html lang='en'>
+<!doctype html>
+<html>
 <head>
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width'>
 	<meta name='theme-color' content='#aa1e1e'>
 
-	<link rel='manifest' href='/manifest.json'>
-	<link rel='icon' type='image/png' href='/favicon.png'>
+	%sapper.base%
 
-	<script>
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/service-worker.js');
-		}
-	</script>
+	<link rel='stylesheet' href='global.css'>
+	<link rel='manifest' href='manifest.json'>
+	<link rel='icon' type='image/png' href='favicon.png'>
 
-	<style>
-		body {
-			margin: 0;
-			font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-			background-color: #f4f4f4;
-			height: 101vh; /* prevents scrollbar-induced layout popping */
-		}
-
-		main {
-			position: relative;
-			max-width: 56em;
-			background-color: white;
-			padding: 2em;
-			margin: 0 auto;
-			box-sizing: border-box;
-		}
-
-		h1, h2, h3, h4, h5, h6 {
-			margin: 0 0 0.5em 0;
-			font-weight: 400;
-		}
-
-		h1 {
-			font-size: 1.6em;
-		}
-
-		p {
-			font-size: 14px;
-		}
-
-		a {
-			color: inherit;
-		}
-	</style>
-
+	<!-- Sapper generates a <style> tag containing critical CSS
+	     for the current page. CSS for the rest of the app is
+	     lazily loaded when it precaches secondary pages -->
 	%sapper.styles%
 
+	<!-- This contains the contents of the <:Head> component, if
+	     the current page has one -->
 	%sapper.head%
 </head>
 <body>
+	<!-- The application will be rendered inside this element,
+	     because `templates/main.js` references it -->
 	<div id='sapper'>%sapper.html%</div>
+
+	<!-- Sapper creates a <script> tag containing `templates/main.js`
+	     and anything else it needs to hydrate the app and
+	     initialise the router -->
 	%sapper.scripts%
 </body>
 </html>

@@ -10,7 +10,7 @@
 				{{#if item.domain}}<small>{{item.domain}}</small>{{/if}}
 			</a>
 
-			<p class='meta'>{{item.points}} points by <a href='/user/{{item.user}}'>{{item.user}}</a> {{item.time_ago}}</p>
+			<p class='meta'>{{item.points}} points by <a href='user/{{item.user}}'>{{item.user}}</a> {{item.time_ago}}</p>
 
 			{{#if item.content}}
 				{{{item.content}}}
@@ -28,10 +28,6 @@
 <style>
 	h1 {
 		font-weight: 500;
-	}
-
-	h3 {
-		margin: 0 0 1em 0;
 	}
 
 	.item {
@@ -68,7 +64,7 @@
 		},
 
 		preload({ params }) {
-			return fetch(`https://api.hnpwa.com/v0/item/${params.id}.json`)
+			return this.fetch(`https://api.hnpwa.com/v0/item/${params.id}.json`)
 				.then(r => r.json())
 				.then(item => {
 					return { item };

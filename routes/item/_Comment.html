@@ -1,6 +1,6 @@
 {{#if !comment.deleted}}
 	<article class='comment'>
-		<span class='meta'><a rel='prefetch' href='/user/{{comment.user}}'>{{comment.user}}</a> {{comment.time_ago}}</span>
+		<span class='meta'><a rel='prefetch' href='user/{{comment.user}}'>{{comment.user}}</a> {{comment.time_ago}}</span>
 		<div class='body'>
 			{{{comment.content}}}
 		</div>
@@ -35,16 +35,6 @@
 		list-style: none;
 	}
 
-	p {
-		line-height: 1.4;
-		font-size: 14px;
-		margin: 0 0 1em 0;
-	}
-
-	pre {
-		white-space: pre-wrap;
-	}
-
 	.meta {
 		display: block;
 		font-size: 14px;
@@ -57,7 +47,7 @@
 	}
 
 	/* prevent crazy overflow layout bug on mobile */
-	.body * {
+	.body :global(*) {
 		overflow-wrap: break-word;
 	}
 </style>
