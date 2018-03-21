@@ -5,12 +5,16 @@
   "author": "Rich Harris",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build",
+    "sapper": "sapper build",
     "export": "sapper export",
     "start": "sapper start",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
+    "test": "run-p --race dev cy:run",
+    "stage": "now",
+    "deploy": "npm run stage && now alias",
+    "predeploy": "git-branch-is master && git diff --exit-code",
+    "prestage": "npm run sapper"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -21,10 +25,11 @@
     "serve-static": "^1.13.1",
     "svelte": "^1.57.3",
     "svelte-loader": "^2.3.3",
-    "webpack": "^4.1.0"
+    "webpack": "^4.2.0"
   },
   "devDependencies": {
-    "now": "^8.5.4"
+    "git-branch-is": "^0.1.0",
+    "now": "^10.2.1"
   },
   "now": {
     "alias": "hn.svelte.technology"
