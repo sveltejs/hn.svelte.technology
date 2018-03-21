@@ -36,6 +36,9 @@
     "files": [
       "assets",
       "build"
-    ]
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    }
   }
 }
