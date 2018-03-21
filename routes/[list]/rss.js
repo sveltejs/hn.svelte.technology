@@ -13,7 +13,7 @@ const render = (list, items) => `<?xml version="1.0" encoding="UTF-8" ?>
 	</image>
 	${items.map(item => `
 		<item>
-			<title>${item.title}${item.domain ? `(${item.domain})` : ''}</title>
+			<title>${item.title}${item.domain ? ` (${item.domain})` : ''}</title>
 			<link>https://hn.svelte.technology/item/${item.id}</link>
 			<description><![CDATA[${
 				item.url ? `<a href="${item.url}">link</a> / ` : ''
