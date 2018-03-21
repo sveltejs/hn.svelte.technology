@@ -7,3 +7,4 @@ templates/.*
 export
 build
 app/manifest
+yarn-error.log

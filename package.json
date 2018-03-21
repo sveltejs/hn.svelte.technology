@@ -20,18 +20,22 @@
     "compression": "^1.7.1",
     "express": "^4.16.3",
     "node-fetch": "^2.1.1",
-    "npm-run-all": "^4.1.2",
     "sapper": "^0.10.0",
-    "serve-static": "^1.13.1",
+    "serve-static": "^1.13.1"
+  },
+  "devDependencies": {
+    "git-branch-is": "^0.1.0",
+    "now": "^10.2.1",
+    "npm-run-all": "^4.1.2",
     "svelte": "^1.57.3",
     "svelte-loader": "^2.3.3",
     "webpack": "^4.2.0"
   },
-  "devDependencies": {
-    "git-branch-is": "^0.1.0",
-    "now": "^10.2.1"
-  },
   "now": {
-    "alias": "hn.svelte.technology"
+    "alias": "hn.svelte.technology",
+    "files": [
+      "assets",
+      "build"
+    ]
   }
 }
