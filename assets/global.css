@@ -29,6 +29,11 @@ a {
 	color: inherit;
 }
 
+pre {
+	background: #f0f0f0;
+	overflow-x: auto;
+}
+
 code {
 	font-family: menlo, inconsolata, monospace;
 	font-size: calc(1em - 2px);
