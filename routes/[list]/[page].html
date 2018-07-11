@@ -1,31 +1,25 @@
-<:Head>
+<svelte:head>
 	<title>Svelte Hacker News</title>
-</:Head>
+</svelte:head>
 
-<Layout page='{{params.list}}'>
-	{{#each items as item, i}}
-		{{#if item}} <!-- sometimes we get bad data? TODO investigate -->
-			<ItemSummary item='{{item}}' index='{{start + i}}'/>
-		{{/if}}
-	{{/each}}
+{#each items as item, i}
+	{#if item} <!-- sometimes we get bad data? TODO investigate -->
+		<ItemSummary item='{item}' index='{start + i}'/>
+	{/if}
+{/each}
 
-	{{#if next}}
-		<a class='more' href='{{next}}'>More...</a>
-	{{/if}}
-</Layout>
+{#if next}
+	<a class='more' href='{next}'>More...</a>
+{/if}
 
 <script>
-	import Layout from '../_components/Layout.html';
-	import ItemSummary from './_ItemSummary.html';
-
 	const PAGE_SIZE = 30;
 
 	const validLists = new Set(['news', 'newest', 'show', 'ask', 'jobs']);
 
 	export default {
 		components: {
-			Layout,
-			ItemSummary
+			ItemSummary: './_ItemSummary.html'
 		},
 
 		preload({ params }) {
@@ -51,8 +45,8 @@
 		},
 
 		computed: {
-			start: params => (1 + (params.page - 1) * PAGE_SIZE),
-			next: params => `/${params.list}/${+params.page + 1}`
+			start: ({ params }) => (1 + (params.page - 1) * PAGE_SIZE),
+			next: ({ params }) => `/${params.list}/${+params.page + 1}`
 		}
 	};
 </script>

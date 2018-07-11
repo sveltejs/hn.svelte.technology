@@ -1,19 +1,19 @@
-{{#if !comment.deleted}}
+{#if !comment.deleted}
 	<article class='comment'>
-		<span class='meta'><a rel='prefetch' href='user/{{comment.user}}'>{{comment.user}}</a> {{comment.time_ago}}</span>
+		<span class='meta'><a rel='prefetch' href='user/{comment.user}'>{comment.user}</a> {comment.time_ago}</span>
 		<div class='body'>
-			{{{comment.content}}}
+			{@html comment.content}
 		</div>
 
-		{{#if comment.comments.length > 0}}
+		{#if comment.comments.length > 0}
 			<ul class='children'>
-				{{#each comment.comments as child}}
-					<li><:Self comment='{{child}}'/></li>
-				{{/each}}
+				{#each comment.comments as child}
+					<li><svelte:self comment='{child}'/></li>
+				{/each}
 			</ul>
-		{{/if}}
+		{/if}
 	</article>
-{{/if}}
+{/if}
 
 <style>
 	.comment {

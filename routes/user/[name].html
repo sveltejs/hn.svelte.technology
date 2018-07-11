@@ -1,35 +1,27 @@
-<:Head>
-	<title>{{params.name}} | Svelte Hacker News</title>
-</:Head>
+<svelte:head>
+	<title>{params.name} | Svelte Hacker News</title>
+</svelte:head>
 
-<Layout page='user'>
-	<h1>{{params.name}}</h1>
+<h1>{params.name}</h1>
 
-	<div>
-		<p>...joined <strong>{{user.created}}</strong>, and has <strong>{{user.karma}}</strong> karma</p>
+<div>
+	<p>...joined <strong>{user.created}</strong>, and has <strong>{user.karma}</strong> karma</p>
 
-		<p>
-			<a href='https://news.ycombinator.com/submitted?id={{user.id}}'>submissions</a> /
-			<a href='https://news.ycombinator.com/threads?id={{user.id}}'>comments</a> /
-			<a href='https://news.ycombinator.com/favorites?id={{user.id}}'>favourites</a>
-		</p>
+	<p>
+		<a href='https://news.ycombinator.com/submitted?id={user.id}'>submissions</a> /
+		<a href='https://news.ycombinator.com/threads?id={user.id}'>comments</a> /
+		<a href='https://news.ycombinator.com/favorites?id={user.id}'>favourites</a>
+	</p>
 
-		{{#if user.about}}
-			<div class='about'>
-				{{{ '<p>' + user.about }}}
-			</div>
-		{{/if}}
-	</div>
-</Layout>
+	{#if user.about}
+		<div class='about'>
+			{@html '<p>' + user.about }
+		</div>
+	{/if}
+</div>
 
 <script>
-	import Layout from '../_components/Layout.html';
-
 	export default {
-		components: {
-			Layout
-		},
-
 		data () {
 			const d = new Date();
 
