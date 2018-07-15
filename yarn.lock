@@ -2434,9 +2434,9 @@ sander@^0.6.0:
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
-sapper@^0.14.1:
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/sapper/-/sapper-0.14.1.tgz#2a744a0988200118859b018aeb85a5cff7428e79"
+sapper@^0.14.2:
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/sapper/-/sapper-0.14.2.tgz#be82be7e67cc7981478df547c372a3f0ecceb313"
   dependencies:
     ansi-colors "^2.0.1"
     cheerio "^1.0.0-rc.2"
