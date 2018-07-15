@@ -19,7 +19,7 @@ const render = (list, items) => `<?xml version="1.0" encoding="UTF-8" ?>
 				item.url ? `<a href="${item.url}">link</a> / ` : ''
 				}<a href="https://hn.svelte.technology/item/${item.id}">comments</a>
 			]]></description>
-			<pubDate>${new Date(item.time).toUTCString()}</pubDate>
+			<pubDate>${new Date(item.time * 1000).toUTCString()}</pubDate>
 		</item>
 	`).join('\n')}
 </channel>
@@ -33,7 +33,7 @@ export function get(req, res) {
 	);
 
 	res.set({
-		'Cache-Control': `max-age=${30 * 60 * 1e3}`,
+		'Cache-Control': `max-age=0, s-max-age=${600}`, // 10 minutes
 		'Content-Type': 'application/rss+xml'
 	});
 
