@@ -17,19 +17,19 @@
     "prestage": "npm run sapper"
   },
   "dependencies": {
-    "compression": "^1.7.1",
+    "compression": "^1.7.3",
     "express": "^4.16.3",
-    "node-fetch": "^2.1.2",
-    "sapper": "^0.14.2",
+    "node-fetch": "^2.2.0",
+    "sapper": "^0.15.0",
     "serve-static": "^1.13.1"
   },
   "devDependencies": {
     "git-branch-is": "^2.0.0",
-    "now": "^11.2.9",
+    "now": "^11.3.1",
     "npm-run-all": "^4.1.3",
-    "svelte": "^2.9.3",
-    "svelte-loader": "^2.9.1",
-    "webpack": "^4.16.0"
+    "svelte": "^2.9.6",
+    "svelte-loader": "^2.10.0",
+    "webpack": "^4.16.1"
   },
   "now": {
     "alias": "hn.svelte.technology",
