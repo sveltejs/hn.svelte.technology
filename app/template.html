@@ -5,6 +5,11 @@
 	<meta name='viewport' content='width=device-width'>
 	<meta name='theme-color' content='#aa1e1e'>
 
+	<script>
+		(window.Promise && window.fetch) ||
+		document.write('<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"><\/script>');
+	</script>
+
 	%sapper.base%
 
 	<link rel='manifest' href='manifest.json'>
