@@ -21,7 +21,7 @@
     "compression": "^1.7.3",
     "express": "^4.16.3",
     "node-fetch": "^2.2.0",
-    "sapper": "^0.20.3",
+    "sapper": "^0.21.0",
     "serve-static": "^1.13.2"
   },
   "devDependencies": {

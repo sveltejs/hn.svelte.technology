@@ -6,5 +6,5 @@ import { manifest } from './manifest/server.js';
 
 express() // You can also use Express
 	.use(compression({ threshold: 0 }))
-	.use(serve('assets'), sapper({ manifest }))
+	.use(serve('static'), sapper({ manifest }))
 	.listen(process.env.PORT);
