@@ -44,8 +44,8 @@
   "now": {
     "alias": "hn.svelte.technology",
     "files": [
-      "assets",
-      "build"
+      "static",
+      "__sapper__/build"
     ],
     "env": {
       "NODE_ENV": "production"
