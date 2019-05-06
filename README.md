@@ -1,3 +1,7 @@
+## DEPRECATED — see https://github.com/sveltejs/hn.svelte.dev instead
+
+---
+
 # sapper-hacker-news
 
 Testing ground for [sapper](https://github.com/rich-harris/sapper), a work-in-progress app development framework based on Svelte.
